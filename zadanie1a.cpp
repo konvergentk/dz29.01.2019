@@ -12,7 +12,7 @@ class double_vector
 public:
     double_vector ()
     {
-        data =  new double [1];         //конструктор без аргументов
+        data =  new double [1];         //  конструктор без аргументов
         data[0] = 0;
     }
     double_vector (unsigned int n)
@@ -24,7 +24,7 @@ public:
     }
     ~ double_vector ()
     {
-        delete [] data;                     //деструктор
+        delete [] data;                     // деструктор
     }
     double_vector(const double_vector& A)
     {                                           //  Конструктор копирования
@@ -35,10 +35,8 @@ public:
     }
     const double_vector& operator=(const double_vector& A)
     {                                   //  Перегруженный оператор присваивания
-        if(&A == this)                  //  Проверка на присваивание объекта
-            return *this;               //  самому себе
-        
-                                                //  Если передан другой объект, то копируем его
+        if(&A == this)                  
+            return *this;               
         delete [] data;
         size = A.size;
         data = new double[size];
@@ -47,11 +45,8 @@ public:
         return *this;
     }
     double operator[] (unsigned int n)
-    {
-
-                                            //  для проверки выхода за границы массива
-        if(n < 0)                       //  В случае если индекс меньше нуля,
-                                            //  то возвращаем нулевой элемент массива
+    {                                    
+        if(n < 0)                      
         {
             return data[0];
         }
@@ -65,7 +60,7 @@ public:
             return data[n];     //  Возврат заданного элемента массива
         
     }
-    void push_back(double x)            //добавение в конец
+    void push_back(double x)            // добавение в конец
     {
         if (size >= capacity)
         {
@@ -83,13 +78,13 @@ public:
     {                               //  Функция, возвращающая размерность вектора
         return size;
     }
-    unsigned int Capacity()                 //получение вместимости вектора
+    unsigned int Capacity()                 // получение вместимости вектора
     {
         return capacity;
     }
-    void pop_back(double x)             //извлечение из конца: 
+    void pop_back(double x)             // извлечение из конца: 
 double pop_back()
-                                       //при извлечении - элемент удаляется из вектора, а значение этого элемента возвращается,
+                                       // при извлечении - элемент удаляется из вектора, а значение этого элемента возвращается,
                                         //как результат работы метода
 
     {
@@ -105,8 +100,9 @@ double pop_back()
             data = new double[size];
             for( int i = 0; i < size; i++ )
                 data[ i ] = data2[ i ];
-            delete []data2; //удаление промежуточного массива
+            delete []data2;        // удаление промежуточного массива
         }
+        
         cout << "вектор пуст";
     }
 };
